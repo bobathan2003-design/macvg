@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    404 not found
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting | MacVG</title>
+    <script>
+      const base = "/macvg/";
+      const currentPath = window.location.pathname;
+      const route = currentPath.startsWith(base)
+        ? currentPath.slice(base.length)
+        : currentPath.replace(/^\/+/, "");
+      const search = window.location.search;
+      const hash = window.location.hash;
+
+      window.location.replace(`${base}#/${route}${search}${hash}`);
+    </script>
+  </head>
+  <body>
+    Redirecting to <a href="/macvg/">MacVG</a>...
+  </body>
 </html>
